@@ -8,20 +8,16 @@ import 'package:provider/provider.dart';
 ///noMore:没有新数据
 enum LoadMoreOn { before, ready, loading, hasMore, noMore }
 
-typedef LoadMoreBeforeBuilder = Widget Function(double height);
-typedef LoadMoreReadyBuilder = Widget Function(double height);
-typedef LoadMoreLoadingBuilder = Widget Function(double height);
-typedef LoadMoreHasMoreBuilder = Widget Function(double height);
-typedef LoadMoreNoMoreBuilder = Widget Function(double height);
+typedef FooterBuilder = Widget Function(double height);
 
 class LoadMore extends StatefulWidget {
   final Widget child;
   final VoidCallback onBeginLoadMore;
-  final LoadMoreBeforeBuilder beforeBuilder;
-  final LoadMoreReadyBuilder readyBuilder;
-  final LoadMoreLoadingBuilder loadingBuilder;
-  final LoadMoreNoMoreBuilder noMoreBuilder;
-  final LoadMoreHasMoreBuilder hasMoreBuilder;
+  final FooterBuilder beforeBuilder;
+  final FooterBuilder readyBuilder;
+  final FooterBuilder loadingBuilder;
+  final FooterBuilder noMoreBuilder;
+  final FooterBuilder hasMoreBuilder;
   final bool needShowHasMore;
 
   ///大于这个值可以刷新,也用于限制footer的高度
